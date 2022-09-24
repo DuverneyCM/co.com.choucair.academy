@@ -7,6 +7,7 @@ import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.SelectFromOptions;
+import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.Keys;
 
 import java.util.List;
@@ -41,6 +42,7 @@ public class Create implements Task {
     }
 
     @Override
+    @Step("{0} start to fill the register form")
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
             Click.on(UtestHomePage.JOIN_TODAY_BUTTON),
@@ -55,11 +57,14 @@ public class Create implements Task {
             Click.on(UtestLoginPage1.NEXT_BUTTON),
             //PAGE 2/4 of the CREATE NEW USER form: LOCATION
             Enter.theValue(city).into(UtestLoginPage2.CITY_FIELD),
+                //.thenHit(Keys.ARROW_DOWN, Keys.RETURN),
                 Enter.keyValues(Keys.ARROW_DOWN, Keys.RETURN).into(UtestLoginPage2.CITY_FIELD),
             Enter.theValue(zip).into(UtestLoginPage2.ZIP_FIELD),
+                //.thenHit(Keys.ARROW_DOWN, Keys.RETURN),
                 Enter.keyValues(Keys.ARROW_DOWN, Keys.RETURN).into(UtestLoginPage2.ZIP_FIELD),
             Click.on(UtestLoginPage2.COUNTRY_SELECT),
-                Enter.theValue(country, Keys.RETURN).into(UtestLoginPage2.COUNTRY_FIELD),
+                Enter.theValue(country).into(UtestLoginPage2.COUNTRY_FIELD)
+                    .thenHit(Keys.RETURN),
             Click.on(UtestLoginPage2.NEXT_BUTTON),
             //PAGE 3/4 of the CREATE NEW USER form: DEVICES
             Click.on(UtestLoginPage3.PC_OS_SELECT),
