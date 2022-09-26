@@ -7,6 +7,7 @@ import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.SelectFromOptions;
+import net.serenitybdd.screenplay.rest.interactions.Ensure;
 import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.Keys;
 
@@ -85,7 +86,8 @@ public class Create implements Task {
             Enter.theValue(new_Password).into(UtestLoginPage4.CONFIRM_PASSWORD_FIELD),
             Click.on(UtestLoginPage4.STAY_INFORMED_CHECKBOX),
             Click.on(UtestLoginPage4.ACCEPT_TERMS_CHECKBOX),
-            Click.on(UtestLoginPage4.ACCEPT_POLICY_CHECKBOX)
+            Click.on(UtestLoginPage4.ACCEPT_POLICY_CHECKBOX),
+            Click.on(UtestLoginPage4.COMPLETE_BUTTON)
         );
     }
 }

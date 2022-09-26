@@ -6,11 +6,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        //features = "src/test/resources/features/academyChoucair.feature",
         features = "src/test/resources/features/createNewUser.feature",
         tags = "@HappyPath", //"@Stories",
         glue = "co.com.choucair.academy.stepdefinitions",
-        snippets = CucumberOptions.SnippetType.CAMELCASE //CucumberOptions.SnippetType.CAMELCASE
+        snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 public class RunnerTags {
 }
