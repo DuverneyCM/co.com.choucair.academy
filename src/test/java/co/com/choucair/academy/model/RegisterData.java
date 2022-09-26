@@ -1,4 +1,12 @@
+// https://cucumber.io/blog/open-source/announcing-cucumber-jvm-3-0-0/
+// https://www.baeldung.com/cucumber-data-tables
+// https://github.com/cucumber/cucumber-jvm/issues/1950
+
 package co.com.choucair.academy.model;
+
+import io.cucumber.java.DataTableType;
+
+import java.util.Map;
 
 public class RegisterData {
     private String firstName, lastName, email, month, day, year, language;
@@ -6,6 +14,50 @@ public class RegisterData {
     private String os, osVersion, osLanguage;
     private String mobileBrand, mobileModel, mobileOS;
     private String newPassword;
+
+    @DataTableType
+    public static RegisterData mapRegisterData(Map<String, String> row) {
+        return new RegisterData(
+                row.get("firstName"),
+                row.get("lastName"),
+                row.get("email"),
+                row.get("month"),
+                row.get("day"),
+                row.get("year"),
+                row.get("language"),
+                row.get("city"),
+                row.get("zipCode"),
+                row.get("country"),
+                row.get("os"),
+                row.get("osVersion"),
+                row.get("osLanguage"),
+                row.get("mobileBrand"),
+                row.get("mobileModel"),
+                row.get("mobileOS"),
+                row.get("newPassword")
+
+        );
+    }
+
+    public RegisterData(String firstName, String lastName, String email, String month, String day, String year, String language, String city, String zipNode, String country, String os, String osVersion, String osLanguage, String mobileBrand, String mobileModel, String mobileOS, String newPassword) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.month = month;
+        this.day = day;
+        this.year = year;
+        this.language = language;
+        this.city = city;
+        this.zipNode = zipNode;
+        this.country = country;
+        this.os = os;
+        this.osVersion = osVersion;
+        this.osLanguage = osLanguage;
+        this.mobileBrand = mobileBrand;
+        this.mobileModel = mobileModel;
+        this.mobileOS = mobileOS;
+        this.newPassword = newPassword;
+    }
 
     public String getFirstName() {
         return firstName;

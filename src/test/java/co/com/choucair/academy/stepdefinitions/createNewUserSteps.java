@@ -1,9 +1,11 @@
 package co.com.choucair.academy.stepdefinitions;
 
+import co.com.choucair.academy.model.RegisterData;
 import co.com.choucair.academy.questions.Polices;
 import co.com.choucair.academy.questions.TermsAndConditions;
 import co.com.choucair.academy.tasks.Create;
 import co.com.choucair.academy.tasks.OpenUp;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -27,6 +29,10 @@ public class createNewUserSteps {
     }
     @When("^he fill the register form with the following data:$")
     public void heFillTheRegisterFormWithTheFollowingData(List<List<String>> registerData) {
+    //public void heFillTheRegisterFormWithTheFollowingData(DataTable dataTable) {
+    //public void heFillTheRegisterFormWithTheFollowingData(List<RegisterData> registerData) {
+        //List<RegisterData> registerData = dataTable.asList(RegisterData.class);
+        //System.out.println("running When By " + registerData);
         //System.out.println("running When By " + registerData.get(1).get(0));
         OnStage.theActorInTheSpotlight().attemptsTo(Create.newUserWith(registerData.get(1)));
     }
