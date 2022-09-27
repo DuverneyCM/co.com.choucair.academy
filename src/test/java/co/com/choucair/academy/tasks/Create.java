@@ -46,7 +46,6 @@ public class Create implements Task {
     @Step("{0} start to fill the register form")
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-            Click.on(UtestHomePage.JOIN_TODAY_BUTTON),
             //PAGE 1/4 of the CREATE NEW USER form: PERSONAL
             Enter.theValue(firstname).into(UtestLoginPage1.FIRST_NAME_FIELD),
             Enter.theValue(lastname).into(UtestLoginPage1.LAST_NAME_FIELD),

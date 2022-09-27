@@ -16,8 +16,12 @@ public class UtestLoginPage4 extends PageObject {
             located(By.id("termOfUse"));
     public static final Target ACCEPT_POLICY_CHECKBOX = Target.the("Checkbox to accept the Privacy and Security Policy").
             located(By.id("privacySetting"));
-    public static final Target COMPLETE_BUTTON = Target.the("Button to going to the next form page (3/4) to create a new user").
+    public static final Target COMPLETE_BUTTON = Target.the("Button to confirm data to create a new user").
             located(By.xpath("//*[contains(@aria-label,'Complete')]"));
     public static final Target BACK_BUTTON = Target.the("Button to going to the back form page (1/4) to create a new user").
             located(By.xpath("//*[contains(@aria-label,'Back')]"));
+    public static final Target SELECT_IMAGE_CAPTCHA = Target.the("Select Image Captcha to verify that the user is created by a human").
+            located(By.id("rc-imageselect"));
+    public static final Target USER_EXIST_ALERT = Target.the("Pop-up alert that is shown when the user is already registered").
+            located(By.xpath("//div[@class='alert-service']//div[@role='alert']"));
 }
